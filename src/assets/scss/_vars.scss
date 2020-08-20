@@ -1,0 +1,13 @@
+$default-font: 'GothamPro';
+$content-width: 1170px;
+$heightHeader: 0px;
+$heightFooter: 185px;
+$minHeightMain: calc(100vh - (#{$heightHeader} + #{$heightFooter}));
+$mainColor: #656971;
+body {
+    --site-color: #43834d;
+    --submain-color: #ffffff;
+    --title-color: #000000;
+    --fonts-gotham-pro-black: 'GothamPro-Black';
+    --fonts-carlsberg: 'Carlsberg';
+}

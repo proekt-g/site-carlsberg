@@ -1,0 +1,73 @@
+body {
+    font-family: $default-font;
+    font-display: swap;
+    color: $mainColor;
+    a {
+        color: $mainColor;
+    }
+}
+
+main {
+    min-height: $minHeightMain;
+}
+
+.container,
+.wrapper-big,
+.wrapper-min {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: calc(#{$content-width} + 20px);
+    padding: 0 10px;
+    @media(max-width: 768px) {
+        padding: 0 24px;
+    }
+}
+
+.wrapper-big {
+    max-width: 970px;
+}
+
+.wrapper-min {
+    max-width: 770px;
+    @media(max-width: 768px) {
+        max-width: 570px;
+    }
+}
+
+.logo {
+    &__img {
+        max-width: 100%;
+    }
+}
+
+.default-text {
+    color: var(--title-color);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    @media(max-width: 768px) {
+        font-size: 13px;
+        line-height: 22px;
+    }
+}
+
+.title-type-1 {
+    font-family: var(--fonts-gotham-pro-black);
+    font-size: 22px;
+    text-transform: uppercase;
+    @media(max-width: 768px) {
+        font-size: 20px;
+    }
+    @media(max-width: 414px) {
+        font-size: 18px;
+    }
+    &--green {
+        color: var(--site-color);
+    }
+    &--white {
+        color: var(--submain-color);
+    }
+}

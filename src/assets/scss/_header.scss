@@ -1,0 +1,17 @@
+.header {
+    position: absolute;
+    width: 100%;
+    top: 10px;
+    @media(max-width: 768px) {
+        top: 30px;
+    }
+    @media(max-width: 650px) {
+        top: 10px;
+    }
+    &__logo {
+        max-width: 149px;
+        @media(max-width: 768px) {
+            max-width: 134px;
+        }
+    }
+}
