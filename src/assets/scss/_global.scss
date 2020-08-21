@@ -52,6 +52,9 @@ main {
         font-size: 13px;
         line-height: 22px;
     }
+    &--white {
+        color: var(--submain-color);
+    }
 }
 
 .title-type-1 {

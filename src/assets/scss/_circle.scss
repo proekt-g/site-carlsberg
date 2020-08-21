@@ -1,0 +1,133 @@
+.rotating-slider {
+    margin: 5em auto;
+    height: 360px;
+    position: relative;
+    width: 480px;
+    height: 100%!important;
+}
+
+.rotating-slider svg {
+    position: absolute;
+    top: 0;
+    // visibility: hidden;
+}
+
+.rotating-slider .slides.direction-controls {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.rotating-slider .slides.direction-controls .slide.left-arrow {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%)
+}
+
+.rotating-slider .slides.direction-controls .slide.right-arrow {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%)
+}
+
+.rotating-slider .slides {
+    border-radius: 50%;
+    height: 100%;
+    margin: 0;
+    /* overflow: hidden; */
+    padding: 0;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(0);
+    transform-origin: center center;
+    width: 100%;
+    cursor: grab;
+}
+
+.rotating-slider .slides .slide {
+    background-color: #ecf0f1;
+    background-position: center;
+    background-size: cover;
+    display: block;
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    text-align: center;
+    transform-origin: bottom center;
+    width: 100%;
+    box-sizing: content-box;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    transition: padding-left .0s, padding-right .0s, padding-bottom 0.5s, transform .0s, height .5s;
+    &--red {
+        background-color: #E94230;
+    }
+    &--blue {
+        background-color: #21BBEF;
+    }
+    &--yellow {
+        background-color: #FBC219;
+    }
+    &--bordo {
+        background-color: #A21943;
+    }
+    &--orange {
+        background-color: #ED6B30;
+    }
+    &--yo {
+        background-color: #F69C2E;
+    }
+    &--green {
+        background-color: #43834D;
+    }
+    &--ping {
+        background-color: #DE1768;
+    }
+    &--giv {
+        background-color: #CA9A2C;
+    }
+    &--salate {
+        background-color: #61B333;
+    }
+    &--water {
+        background-color: #0E69A0;
+    }
+    &--gar {
+        background-color: #E9B432;
+    }
+}
+
+.slides .slide__content {
+    transform: rotate(180deg);
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &::after {
+        content: '';
+        position: absolute;
+        width: 153%;
+        background-color: #fff;
+        height: 4px;
+        transform: rotate(75deg);
+        z-index: 4;
+        bottom: 66px;
+        left: 55px;
+    }
+    &-picture {
+        margin-bottom: 15px;
+        pointer-events: none;
+    }
+}
+
+// .test {
+//     width: 4px!important;
+//     padding: 0!important;
+// }

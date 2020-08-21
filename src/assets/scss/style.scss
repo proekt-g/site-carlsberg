@@ -3,13 +3,16 @@
 @import 'vars';
 @import 'global';
 @import 'header';
+@import 'circle';
 .top {
     padding: 188px 0 40px;
     background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(../images/test-1.jpg);
+    background-image: url(../images/test-1.png);
     text-align: center;
+    position: relative;
+    z-index: 5;
     @media(max-width: 950px) {
         padding: 365px 0 37px;
     }
@@ -275,9 +278,13 @@
                 }
             }
             &:hover .top__app-box-text {
-                opacity: 0;
+                color: #fff;
+                text-align: left;
+                margin-left: 20px;
                 @media(max-width: 768px) {
-                    opacity: 1;
+                    color: #c0c0c0;
+                    text-align: center;
+                    margin-left: 50px;
                 }
             }
             &:hover {
@@ -322,6 +329,41 @@
                     font-size: 12px;
                 }
             }
+        }
+    }
+}
+
+.circle {
+    margin-top: -428px;
+    position: relative;
+    z-index: 0;
+    &__center {
+        position: absolute;
+        background-color: #15496b;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 555px;
+        max-height: 555px;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding-bottom: 77px;
+        &-title {
+            margin-bottom: 20px;
+            color: var(--submain-color);
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            max-width: 280px;
+        }
+        &-text {
+            max-width: 380px;
+            text-align: center;
         }
     }
 }
