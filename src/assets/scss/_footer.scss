@@ -1,0 +1,44 @@
+.footer {
+    min-height: 185px;
+    background-color: #f5f5f5;
+    background-image: url(../images/mount-footer.png);
+    background-repeat: no-repeat;
+    background-position: center -40px;
+    display: flex;
+    @media(max-width: 768px) {
+        min-height: 245px;
+    }
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        @media(max-width: 768px) {
+            flex-direction: column;
+            padding-top: 20px;
+            justify-content: start;
+        }
+    }
+    &__logo {
+        flex: 0 0 149px;
+        height: 92px;
+        @media(max-width: 768px) {
+            max-width: 149px;
+            flex: 0 0 auto;
+            margin-bottom: 35px;
+        }
+    }
+    &__img {
+        max-width: 100%;
+        object-fit: cover;
+        height: auto;
+    }
+    &__cop {
+        color: var(--title-color);
+        font-size: 16px;
+        font-weight: 400;
+        @media(max-width: 414px) {
+            font-size: 14px;
+        }
+    }
+}

@@ -4,8 +4,28 @@
 //     }
 // }
 window.addEventListener('load', function() {
-    let widthSlide = 120,
+    let widthSlide,
+        heightCloseSlide,
+        heightSlide;
+    if (window.innerWidth > 950) {
+        widthSlide = 120;
+        heightCloseSlide = 120;
         heightSlide = 150;
+    }
+    if (window.innerWidth <= 950) {
+        widthSlide = 100;
+        heightCloseSlide = 90;
+        heightSlide = 130;
+    }
+    if (window.innerWidth <= 700) {
+        widthSlide = 60;
+        heightCloseSlide = 80;
+    }
+    if (window.innerWidth <= 414) {
+        widthSlide = 55;
+        heightCloseSlide = 45;
+    }
+
     // rotating slider (jQuery)
     $.fn.rotatingSlider = function(options) {
         var rotatingSlider = {
@@ -243,8 +263,8 @@ window.addEventListener('load', function() {
         directionLeftText: '&lsaquo;',
         directionRightText: '&rsaquo;',
         rotationSpeed: 250,
-        slideWidth: 120,
-        slideHeight: 120,
+        slideWidth: widthSlide,
+        slideHeight: heightCloseSlide,
         /* Callback Functions */
         beforeRotationStart: function() {},
         afterRotationStart: function() {},
@@ -254,8 +274,18 @@ window.addEventListener('load', function() {
 
     // /rotating slider (jQuery)
 
-    let $slide = document.querySelectorAll('.slide--main');
+    let $slide = document.querySelectorAll('.slide--main'),
+        $circleCenterTitle = document.querySelector('.circle__center-title'),
+        $circleCenterText = document.querySelector('.circle__center-text'),
+        $topTitleMainLetter = document.querySelectorAll('.top__title-main-letter'),
+        $slidesDay = document.querySelectorAll('.slides__day'),
+        $slides = document.querySelector('.slides');
 
+
+
+    function fixScreen() {
+        document.querySelector('body').classList.toggle('hidden');
+    }
 
     function createRotatingSlider(name, _autoRotate, _autoRotateInterval, _draggable, _directionControls, _directionLeftText, _directionRightText, _rotationSpeed, _slideWidth, _slideHeight, _meTopCoef, _meInnerRadiusCoef, _mePaddingCoef) {
         $(name).rotatingSlider({
@@ -289,74 +319,152 @@ window.addEventListener('load', function() {
     }
 
 
+
+
+    $slides.addEventListener('touchstart', fixScreen, false);
+    $slides.addEventListener('touchend', fixScreen, false);
+    $slidesDay.forEach(function(item) {
+        item.addEventListener('click', function() {
+            console.log('tut');
+        });
+    });
     $slide.forEach(function(item, index) {
-        item.addEventListener('mouseenter', hoverSliderElement.bind(item, index, undefined, undefined, undefined, undefined), false);
-        item.addEventListener('mouseleave', hoverSliderElement.bind(item, index, 120, 120, 'slideClipPath', 0), false);
+        if (window.innerWidth > 950) item.addEventListener('mouseenter', hoverSliderElement.bind(item, index, undefined, undefined, undefined, undefined), false);
+        if (window.innerWidth > 950) item.addEventListener('mouseleave', hoverSliderElement.bind(item, index, 120, 120, 'slideClipPath', 0), false);
         item.addEventListener('click', clickSliderElement, false);
         let _className,
-            _innerRadius = 2.07;
+            _innerRadius = 2.07,
+            dayRadius = 26,
+            slideTop = 110;
+        if (window.innerWidth <= 950) {
+            _innerRadius = 2.23;
+            dayRadius = 20;
+            slideTop = 85;
+        }
+        if (window.innerWidth <= 700) {
+            _innerRadius = 1.8;
+            dayRadius = 15;
+            slideTop = 73;
+        }
+        if (window.innerWidth <= 414) {
+            _innerRadius = 1.9;
+            dayRadius = 13;
+            slideTop = 39;
+        }
         if (item.closest('.rotating-slider').querySelectorAll('.rotating-slider')[index].classList.contains('rotating-slider__junuary')) _className = '.rotating-slider__junuary';
         if (item.closest('.rotating-slider').querySelectorAll('.rotating-slider')[index].classList.contains('rotating-slider__february')) {
             _className = '.rotating-slider__february';
-            _innerRadius = 2.3;
+            if (window.innerWidth > 950) _innerRadius = 2.3;
+            if (window.innerWidth <= 950) _innerRadius = 2.5;
+            if (window.innerWidth <= 700) _innerRadius = 2;
+            if (window.innerWidth <= 414) _innerRadius = 2.13;
         };
         if (item.closest('.rotating-slider').querySelectorAll('.rotating-slider')[index].classList.contains('rotating-slider__march')) _className = '.rotating-slider__march';
         if (item.closest('.rotating-slider').querySelectorAll('.rotating-slider')[index].classList.contains('rotating-slider__april')) {
             _className = '.rotating-slider__april';
-            _innerRadius = 2.13;
+            if (window.innerWidth > 950) _innerRadius = 2.13;
+            if (window.innerWidth <= 950) _innerRadius = 2.33;
+            if (window.innerWidth <= 700) _innerRadius = 1.85;
+            if (window.innerWidth <= 414) _innerRadius = 1.96;
         };
         if (item.closest('.rotating-slider').querySelectorAll('.rotating-slider')[index].classList.contains('rotating-slider__may')) _className = '.rotating-slider__may';
         if (item.closest('.rotating-slider').querySelectorAll('.rotating-slider')[index].classList.contains('rotating-slider__june')) {
             _className = '.rotating-slider__june';
-            _innerRadius = 2.13;
+            if (window.innerWidth > 950) _innerRadius = 2.13;
+            if (window.innerWidth <= 950) _innerRadius = 2.33;
+            if (window.innerWidth <= 700) _innerRadius = 1.85;
+            if (window.innerWidth <= 414) _innerRadius = 1.96;
         };
         if (item.closest('.rotating-slider').querySelectorAll('.rotating-slider')[index].classList.contains('rotating-slider__july')) _className = '.rotating-slider__july';
         if (item.closest('.rotating-slider').querySelectorAll('.rotating-slider')[index].classList.contains('rotating-slider__august')) _className = '.rotating-slider__august';
         if (item.closest('.rotating-slider').querySelectorAll('.rotating-slider')[index].classList.contains('rotating-slider__september')) {
             _className = '.rotating-slider__september';
-            _innerRadius = 2.13;
+            if (window.innerWidth > 950) _innerRadius = 2.13;
+            if (window.innerWidth <= 950) _innerRadius = 2.33;
+            if (window.innerWidth <= 700) _innerRadius = 1.85;
+            if (window.innerWidth <= 414) _innerRadius = 1.96;
         };
         if (item.closest('.rotating-slider').querySelectorAll('.rotating-slider')[index].classList.contains('rotating-slider__october')) _className = '.rotating-slider__october';
         if (item.closest('.rotating-slider').querySelectorAll('.rotating-slider')[index].classList.contains('rotating-slider__november')) {
             _className = '.rotating-slider__november';
-            _innerRadius = 2.13;
+            if (window.innerWidth > 950) _innerRadius = 2.13;
+            if (window.innerWidth <= 950) _innerRadius = 2.33;
+            if (window.innerWidth <= 700) _innerRadius = 1.85;
+            if (window.innerWidth <= 414) _innerRadius = 1.96;
         };
         if (item.closest('.rotating-slider').querySelectorAll('.rotating-slider')[index].classList.contains('rotating-slider__december')) _className = '.rotating-slider__december';
-
-
         item.addEventListener('click', addModifierElement.bind(null, document.querySelector(_className), true, 'active'), false);
-        item.addEventListener('click', createRotatingSlider.bind(null, _className, false, 2000, true, false, '&lsaquo;', '&rsaquo;', 250, 26, 26, 110, _innerRadius, 0), false);
+        item.addEventListener('click', createRotatingSlider.bind(null, _className, false, 2000, true, false, '&lsaquo;', '&rsaquo;', 250, dayRadius, dayRadius, slideTop, _innerRadius, 0), false);
         item.addEventListener('click', addModifierElement.bind(null, document.querySelector(_className).querySelectorAll('.slide--day'), 0, 'active'), false);
-        item.addEventListener('click', switchSliderText.bind(item, undefined), false);
-        item.addEventListener('click', clickDay, false);
+        item.addEventListener('click', activityDay, false);
+        item.addEventListener('click', switchSliderTextMounth, false);
+        item.addEventListener('click', addModifierMounth, false);
+        item.addEventListener('click', addModifierDay.bind(null, _className), false);
+        item.addEventListener('click', addModifierElement.bind(null, $topTitleMainLetter, 0, 'hidden'), false);
     });
 
 
 
-    function clickDay() {
+
+
+
+
+    function activityDay() {
         let _this = this;
-        console.log(event.target);
-        document.querySelectorAll('.slide--active').forEach(function(item, index) {
-            item.addEventListener('click', switchSliderText.bind(_this, index), false);
-        });
+        if (!this.classList.contains('slide--choise')) {
+            document.querySelectorAll('.slide--active').forEach(function(item, index) {
+                if (!item.classList.contains('slide--pasive')) item.addEventListener('click', switchSliderText.bind(_this, index), false);
+                else item.addEventListener('click', switchSliderTextMounth.bind(_this), false);
+            });
+        }
     }
 
     function switchSliderText(index = 0) {
-        addModifierElement(document.querySelector('.circle__center-title'), 0, 'hidden');
-        addModifierElement(document.querySelector('.circle__center-text'), 0, 'hidden');
-        addModifierElement(this.closest('.rotating-slider').querySelectorAll('.rotating-slider--active .slide')[index], 1, 'select');
+        let $day = this.closest('.rotating-slider').querySelectorAll('.rotating-slider--active .slide')[index];
+        addModifierElement($circleCenterTitle, 0, 'hidden');
+        addModifierElement($circleCenterText, 0, 'hidden');
+        addModifierElement($day, 1, 'select');
         let _this = this;
         setTimeout(function() {
-            document.querySelector('.circle__center-title').innerHTML = _this.closest('.rotating-slider').querySelectorAll('.rotating-slider--active .day-info__title')[index].innerHTML;
-            addModifierElement(document.querySelector('.circle__center-title'), 0, 'hidden');
-            document.querySelector('.circle__center-text').innerHTML = _this.closest('.rotating-slider').querySelectorAll('.rotating-slider--active .day-info__text')[index].innerHTML;
-            addModifierElement(document.querySelector('.circle__center-text'), 0, 'hidden');
+            $circleCenterTitle.innerHTML = _this.closest('.rotating-slider').querySelectorAll('.rotating-slider--active .day-info__title')[index].innerHTML;
+            addModifierElement($circleCenterTitle, 0, 'hidden');
+            $circleCenterText.innerHTML = _this.closest('.rotating-slider').querySelectorAll('.rotating-slider--active .day-info__text')[index].innerHTML;
+            addModifierElement($circleCenterText, 0, 'hidden');
         }, 350);
 
     }
 
+    function switchSliderTextMounth() {
+        let $mounth = this.closest('.rotating-slider').querySelector('.rotating-slider--active .mounth-info');
+        addModifierElement($circleCenterTitle, 0, 'hidden');
+        addModifierElement($circleCenterText, 0, 'hidden');
+        if (document.querySelector('.slide--select') !== null) addModifierElement(document.querySelector('.slide--select'), 0, 'select');
+        setTimeout(function() {
+            $circleCenterTitle.innerHTML = $mounth.querySelector('.mounth-info__title').innerHTML;
+            addModifierElement($circleCenterTitle, 0, 'hidden');
+            $circleCenterText.innerHTML = $mounth.querySelector('.mounth-info__text').innerHTML;
+            addModifierElement($circleCenterText, 0, 'hidden');
+        }, 350);
+    }
+
+    function addModifierDay(_className) {
+        setTimeout(function() {
+            addModifierElement(document.querySelector(_className).querySelectorAll('.slide--day'), 0, 'opacity');
+        }, 100);
+
+    }
+
+    function addModifierMounth() {
+        this.classList.add('slide--choise');
+    }
+
     function clickSliderElement() {
-        if (document.querySelectorAll('.slide--active') !== null) addModifierElement(document.querySelectorAll('.slide--active'), 0, 'active');
+        if (document.querySelectorAll('.slide--opacity') !== null) {
+            addModifierElement(document.querySelectorAll('.slide--opacity'), 0, 'opacity');
+        }
+        if (document.querySelectorAll('.slide--active') !== null) {
+            addModifierElement(document.querySelectorAll('.slide--active'), 0, 'active');
+        }
     }
 
     function hoverSliderElement(index, width = widthSlide, height = heightSlide, svgName = 'slideClipPathMe', coef = 17) {
