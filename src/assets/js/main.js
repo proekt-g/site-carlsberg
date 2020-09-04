@@ -281,6 +281,8 @@ window.addEventListener('load', function() {
         $slidesDay = document.querySelectorAll('.slides__day'),
         $slides = document.querySelector('.slides');
 
+    let timeSwitchLetter;
+
 
 
     function fixScreen() {
@@ -400,7 +402,7 @@ window.addEventListener('load', function() {
         item.addEventListener('click', switchSliderTextMounth, false);
         item.addEventListener('click', addModifierMounth, false);
         item.addEventListener('click', addModifierDay.bind(null, _className), false);
-        item.addEventListener('click', addModifierElement.bind(null, $topTitleMainLetter, 0, 'hidden'), false);
+        // item.addEventListener('click', addModifierElement.bind(null, $topTitleMainLetter, 0, 'hidden'), false);
     });
 
 
@@ -492,4 +494,13 @@ window.addEventListener('load', function() {
         $slide.css('-webkit-clip-path', `url(#${svgName})`);
         $slide.css('clip-path', `url(#${svgName})`);
     }
+
+    function autoSwitchLetter() {
+        timeSwitchLetter = setInterval(function() {
+            addModifierElement($topTitleMainLetter, 0, 'hidden');
+        }, 2000);
+    }
+
+
+    autoSwitchLetter();
 });

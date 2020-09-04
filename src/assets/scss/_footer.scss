@@ -20,10 +20,10 @@
         }
     }
     &__logo {
-        flex: 0 0 149px;
-        height: 92px;
+        flex: 0 0 120px;
+        height: 74px;
         @media(max-width: 768px) {
-            max-width: 149px;
+            max-width: 120px;
             flex: 0 0 auto;
             margin-bottom: 35px;
         }
@@ -37,6 +37,14 @@
         color: var(--title-color);
         font-size: 16px;
         font-weight: 400;
+        align-self: flex-end;
+        margin-bottom: 7px;
+        @media(max-width: 768px) {
+            align-self: auto;
+            flex-grow: 1;
+            display: flex;
+            align-items: flex-end;
+        }
         @media(max-width: 414px) {
             font-size: 14px;
         }
